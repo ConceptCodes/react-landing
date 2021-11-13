@@ -1,5 +1,6 @@
 import Head from "next/head";
-import { ArrowNarrowRightIcon } from "@heroicons/react/outline";
+import Header from '../components/Header'
+import Card from '../components/Card'
 
 const caseStudies = [
   {
@@ -19,47 +20,21 @@ const caseStudies = [
   },
 ];
 
-let navItems = ["products", "our work", "services"];
-
 export default function Home() {
   return (
-    <div className="dark:bg-black">
+    <div className="dark:bg-black h-screen">
       <Head>
         <title>Landing</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="flex flex-col justify-around h-screen">
-        <header class="flex justify-around">
-          <div className="dark:text-white">hello@cargo.io</div>
-          <div className="flex dark:text-gray-400 capitalize">
-            {navItems.map((x, index) => (
-              <div
-                key={index}
-                className="mx-3 cursor-pointer hover:text-gray-800 dark:hover:text-white"
-              >
-                {x}
-              </div>
-            ))}
-          </div>
-          <div>
-            <a
-              href=""
-              className="dark:text-gray-500 mx-3 uppercase hover:text-white"
-            >
-              faq
-            </a>
-            <button className="bg-blue-600 text-white capitalize px-4  h-8 rounded-2xl">
-              get started
-            </button>
-          </div>
-        </header>
-        <div className="flex flex-col mx-10">
-          <div className="flex flex-grow flex-col items-center">
-            <h1 className="dark:text-white text-black text-6xl">
-              Cargo{" "}
-              <span className="text-blue-600 mx-1">
+      <div className="p-5 flex flex-col">
+        <Header />
+          <div className="pt-20 flex flex-col items-center">
+            <h1 className="dark:text-white text-black text-4xl md:text-6xl">
+              Cargo
+              <span className="text-blue-600 mx-2">
                 Design
-              </span>{" "}
+              </span>
               Agency
             </h1>
             <h4 className="text-gray-600 text-xl p-3">
@@ -70,9 +45,7 @@ export default function Home() {
               get started
             </button>
           </div>
-          </div>
-          <div className="px-10">
-            <div className="flex justify-between pb-10">
+            <div className="pt-20 flex justify-between px-3 ">
               <div className="capitalize text-xl dark:text-white">
                 case studies
               </div>
@@ -80,37 +53,11 @@ export default function Home() {
                 view all
               </div>
             </div>
-            <div className="flex justify-between">
+            <div className="flex flex-wrap justify-between">
               {caseStudies.map((study, index) => (
-                <div
-                  key={index}
-                  className="flex group cursor-pointer flex-grow mx-2 flex-col p-3 h-45 rounded-lg hover:bg-blue-600 border-4 border-black dark:border-gray-500 border-opacity-25 hover:border-opacity-0"
-                >
-                  <div className="m-3 group-hover:text-white">
-                    <div className="flex dark:text-gray-600 group-hover:text-white justify-between pb-5">
-                      <div className="uppercase">{study.category}</div>
-                      <div className="capitalize">{study.application_type}</div>
-                    </div>
-                    <div className="text-3xl capitalize dark:text-white">
-                      {study.title}
-                    </div>
-                    <p className="dark:text-gray-600 group-hover:text-white truncate pb-5">
-                      At vero eos et accusamus et o
-                    </p>
-                    <div className="flex items-center">
-                      <div className="dark:text-white capitalize">
-                        view case study
-                      </div>
-                      <div className="mx-2">
-                        <ArrowNarrowRightIcon className="h-7 group-hover:text-white text-black dark:text-white" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
+               <Card key={index} study={study} />
               ))}
             </div>
-          </div>
-        
       </div>
     </div>
   );
