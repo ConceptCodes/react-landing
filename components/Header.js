@@ -6,12 +6,12 @@ function Header() {
         <div className="dark:text-white hidden md:inline-flex">hello@cargo.io</div>
         <div className="flex dark:text-gray-400  capitalize">
           {navItems.map((x, index) => (
-            <div
+            <ul
               key={index}
               className="mx-3 cursor-pointer hover:text-gray-800 dark:hover:text-white"
             >
-              {x}
-            </div>
+              <li>{x}</li>
+            </ul>
           ))}
         </div>
         <div className="hidden md:inline-flex">

@@ -22,14 +22,14 @@ const caseStudies = [
 
 export default function Home() {
   return (
-    <div className="dark:bg-black h-screen">
+    <div className="dark:bg-black min-h-screen">
       <Head>
         <title>Landing</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="p-5 flex flex-col">
         <Header />
-          <div className="pt-20 flex flex-col items-center">
+          <section className="pt-20 flex flex-col text-left md:items-center md:justify-center">
             <h1 className="dark:text-white text-black text-4xl md:text-6xl">
               Cargo
               <span className="text-blue-600 mx-2">
@@ -44,7 +44,7 @@ export default function Home() {
             <button className="capitalize px-6 py-2 text-white bg-blue-600 rounded-3xl">
               get started
             </button>
-          </div>
+          </section>
             <div className="pt-20 flex justify-between px-3 ">
               <div className="capitalize text-xl dark:text-white">
                 case studies
@@ -53,7 +53,7 @@ export default function Home() {
                 view all
               </div>
             </div>
-            <div className="flex flex-wrap justify-between">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
               {caseStudies.map((study, index) => (
                <Card key={index} study={study} />
               ))}
